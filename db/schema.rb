@@ -31,7 +31,11 @@ ActiveRecord::Schema.define(version: 20170515175059) do
 
   create_table "attendees", force: :cascade do |t|
     t.string "name"
+
     t.string "user_name"
+
+    t.string "username"
+
     t.string "password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -46,14 +50,18 @@ ActiveRecord::Schema.define(version: 20170515175059) do
   end
 
 
+
   create_table "producers", force: :cascade do |t|
     t.string "name"
     t.string "user_name"
+
+  create_table "producers", force: :cascade do |t|
+    t.string "name"
+    t.string "username"
     t.string "password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
 
   create_table "stages", force: :cascade do |t|
     t.string "name"
