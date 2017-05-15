@@ -2,7 +2,7 @@ class CreateAttendeeAndProducerTables < ActiveRecord::Migration[5.1]
   def change
     create_table :attendees do |t|
       t.column :name, :varchar
-      t.column :user_name, :varchar
+      t.column :username, :varchar
       t.column :password, :varchar
 
       t.timestamps
@@ -10,7 +10,7 @@ class CreateAttendeeAndProducerTables < ActiveRecord::Migration[5.1]
 
     create_table :producers do |t|
       t.column :name, :varchar
-      t.column :user_name, :varchar
+      t.column :username, :varchar
       t.column :password, :varchar
 
       t.timestamps
