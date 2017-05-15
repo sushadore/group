@@ -19,5 +19,9 @@ RSpec.configure do |config|
     Stage.all.each do |d|
       d.destroy
     end
+
+    Attendee.all.each do |d|
+      d.destroy
+    end
   end
 end
