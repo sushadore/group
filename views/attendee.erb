@@ -1,15 +1,22 @@
-<h1>Hello <!-- user --> </h1>
+<h1>Hello <%= attendee.username %> </h1>
 <p>add artists to your schedule</p>
-<form action="/attendee/:id" method="post">
-  <table>
-    <tr>
-      <th><label for="artist_id">Select Artist</label></th>
-    </tr>
-  </table>
+<form action="/attnedee/:id" method="post">
 
-
+<label for="artist_id">Select Artist</label>
 <% @artists.each do |artist| %>
     <input type="checkbox" name="artist_ids[]" value="<%= artist.id() %>"> <%= artist.name() %><br>
     <% end %>
     <button class="btn btn-default" type="submit">Add artist</button>
   </form>
+
+
+  <% if @artists.any? %>
+    <ul>
+      <% @artists.attendee_id.each do |artist| %>
+        <li><h4><a href="/artists/<%= artist.id%>"><%= artist.name %></a><h4></li>
+      <% end %>
+    </ul>
+    <h4>Click on artist view performances or to edit artist</h4>
+  <% else %>
+    <h4>There are no artists yet!</h4>
+  <% end %>

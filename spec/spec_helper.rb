@@ -24,9 +24,5 @@ RSpec.configure do |config|
     Attendee.all.each do |d|
       d.destroy
     end
-<<<<<<< HEAD
-    
-=======
->>>>>>> 1fbda4fe40f33b9d09e94f7bc8f7695bc1a303dc
   end
 end

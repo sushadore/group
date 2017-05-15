@@ -3,7 +3,7 @@ class Attendee < ActiveRecord::Base
   has_many :artists, dependent: :destroy
   validates :name, {:presence => true, :uniqueness => true}
   before_save :capitalize_name
-  has_secure_password
+  
 
   has_and_belongs_to_many :artists, dependent: :destroy
   validates :name, {:presence => true}

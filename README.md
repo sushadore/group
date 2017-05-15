@@ -1,15 +1,10 @@
 # Music Festival App
 
 #### A music festival app that personalizes music festival schedule, {05/15/17}
-<<<<<<< HEAD
 
 
 #### By **Susha Dore,Sowmya Dinavahi,Steven Galvin,Monique St Laurent**
 
-=======
-
-#### By  **Susha Dore, Sowmya Dinavahi, Steven Galvin, Monique St Laurent**
->>>>>>> 1fbda4fe40f33b9d09e94f7bc8f7695bc1a303dc
 
 ## Description
 
