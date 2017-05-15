@@ -1,6 +1,4 @@
-class Stage < ActiveRecord::Base
-  has_many :performances
-  has_many :artists, through: :performances
+class Producer < ActiveRecord::Base
   validates :name, {:presence => true, :uniqueness => true}
   before_save :capitalize_name
 
