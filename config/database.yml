@@ -1,0 +1,7 @@
+development:
+  adapter: postgresql
+  database: festival_development
+
+test:
+  adapter: postgresql
+  database: festival_test
