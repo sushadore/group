@@ -1,10 +1,10 @@
 require "bundler/setup"
 
 
-enable  :sessions, :logging
 
 Bundler.require :default
 Dir[File.dirname(__FILE__) + '/lib/*.rb'].each { |file| require file }
+enable  :sessions, :logging
 
 get "/" do
   erb :index
