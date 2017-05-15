@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170515175059) do
+ActiveRecord::Schema.define(version: 20170515220450) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,13 +19,8 @@ ActiveRecord::Schema.define(version: 20170515175059) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "artists_attendees", id: false, force: :cascade do |t|
-    t.bigint "artist_id", null: false
-    t.bigint "attendee_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "user_reviews"
+    t.string "bio"
   end
 
   create_table "attendees", force: :cascade do |t|
@@ -35,6 +30,14 @@ ActiveRecord::Schema.define(version: 20170515175059) do
     t.string "password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "favorites", id: false, force: :cascade do |t|
+    t.bigint "artist_id", null: false
+    t.bigint "attendee_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "ranking"
   end
 
   create_table "performances", id: false, force: :cascade do |t|
