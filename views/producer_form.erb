@@ -1,0 +1,79 @@
+<h1>Stages</h1>
+
+<% if @stages.any? %>
+  <ul>
+    <% @stages.each do |stage| %>
+      <li><h4><a href="/stages/<%= stage.id%>"><%= stage.name %></a><h4></li>
+    <% end %>
+  </ul>
+  <h4>Click on stage to edit stage</h4>
+<% else %>
+  <h4>There are no stages yet!</h4>
+<% end %>
+<form action ="/stages/new" method="post">
+ <div class="form_group">
+   <label for="title">Stage Name:</label>
+   <input class="form-control" name="name" type="text">
+ </div>
+ <br><button class="btn btn-default" type="submit">Create Stage</button>
+</form>
+
+
+<h1>Performance Times</h1>
+
+<% if @performances.any? %>
+  <ul>
+    <% @performances.each do |performance| %>
+      <li><h4><a href="/performances/<%= performance.id%>"><%= performance.performance_time %></a><h4></li>
+    <% end %>
+  </ul>
+  <div class="form_group">
+    <label for="stage_id">Select Stage</label>
+    <select id="stage_id" name="stage_id" type="text">
+      <% @stages.each do |stage| %>
+        <option value="<%= stage.id%>"> <%= stage.name %></option>
+      <% end %>
+    </select>
+  </div>
+  <div class="form_group">
+    <label for="artist_id">Select Stage</label>
+    <select id="artist_id" name="artist_id" type="text">
+      <% @artists.each do |artist| %>
+        <option value="<%= artist.id%>"> <%= artist.name %></option>
+      <% end %>
+    </select>
+  </div>
+  <h4>Click on performance time to edit performance time</h4>
+<% else %>
+  <h4>There are no performances times yet!</h4>
+<% end %>
+
+<h1>Artists</h1>
+
+<% if @artists.any? %>
+  <ul>
+    <% @artists.each do |artist| %>
+      <li><h4><a href="/artists/<%= artist.id%>"><%= artist.name %></a><h4></li>
+    <% end %>
+  </ul>
+  <h4>Click on artist to edit artist</h4>
+<% else %>
+  <h4>There are no artists yet!</h4>
+<% end %>
+
+<form action="/artists/new" method="post">
+  <div class="form_group">
+    <label for="name">Artist Name:</label>
+    <input class="form-control" name="name" type="text">
+  </div>
+
+  <div class="form_group">
+    <label for="performance_time">Select Performanc Time</label>
+    <select id="performance_time" name="performance_time" type="text">
+      <% @performances.each do |performance| %>
+        <option value="<%= performance.id%>"> <%= performance.performance_time %></option>
+      <% end %>
+    </select>
+  </div>
+  <br><button class="btn btn-default" type="submit">Add artist</button>
+</form>

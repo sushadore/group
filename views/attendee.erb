@@ -1,0 +1,15 @@
+<h1>Hello <!-- user --> </h1>
+<p>add artists to your schedule</p>
+<form action="/attendee/:id" method="post">
+  <table>
+    <tr>
+      <th><label for="artist_id">Select Artist</label></th>
+    </tr>
+  </table>
+
+
+<% @artists.each do |artist| %>
+    <input type="checkbox" name="artist_ids[]" value="<%= artist.id() %>"> <%= artist.name() %><br>
+    <% end %>
+    <button class="btn btn-default" type="submit">Add artist</button>
+  </form>
