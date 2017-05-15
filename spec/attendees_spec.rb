@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Attendee do
-  it { should have_and_belong_to_many(:artists) }
+  it { should have_many(:artists).through(:favorites) }
 
   describe("validations & callbacks") do
 
