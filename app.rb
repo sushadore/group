@@ -1,5 +1,6 @@
 require "bundler/setup"
 
+
 enable  :sessions, :logging
 
 Bundler.require :default
@@ -8,6 +9,7 @@ Dir[File.dirname(__FILE__) + '/lib/*.rb'].each { |file| require file }
 get "/" do
   erb :index
 end
+
 
 get "/attendee/:id" do
   if session[:user_name] !=nil
