@@ -10,9 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20170515161854) do
-
 ActiveRecord::Schema.define(version: 20170515175059) do
 
 
@@ -24,7 +21,6 @@ ActiveRecord::Schema.define(version: 20170515175059) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
 
   create_table "artists_attendees", id: false, force: :cascade do |t|
     t.bigint "artist_id", null: false

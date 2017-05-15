@@ -1,0 +1,18 @@
+<h2>Stage: <%= @stage.name<%></h2>
+<hr>
+<h3>Update Stage</h3>
+<form action ="/stages/<%= @stage.id%>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <div class="form-group">
+    <label for="name">Change Name</label>
+    <input class="form-control" type="text" name="name">
+  </div>
+  <button class="btn btn-default" type ="submit">Edit Name</button>
+</form><br>
+
+<form action="/stages/<%= @stage.id %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <button class="btn btn-default" type="submit">Delete stage</button>
+</form><br>
+
+<a href="/producer_form">Producer Form</a>

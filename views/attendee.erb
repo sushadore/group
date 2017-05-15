@@ -1,11 +1,15 @@
 <h1>Hello <!-- user --> </h1>
 <p>add artists to your schedule</p>
 <form action="/attendee/:id" method="post">
-  <label for="artist_id">Select Artist</label>
-  <select id="artist_id" name="artist_id" type="text">
-    <% @artists.each do |artist| %>
-      <option value="<%= artist.id%>"> <%= artist.name %></option>
+  <table>
+    <tr>
+      <th><label for="artist_id">Select Artist</label></th>
+    </tr>
+  </table>
+
+
+<% @artists.each do |artist| %>
+    <input type="checkbox" name="artist_ids[]" value="<%= artist.id() %>"> <%= artist.name() %><br>
     <% end %>
-  </select>
-  <button class="btn btn-default" type="submit">Add artist</button>
-</form>
+    <button class="btn btn-default" type="submit">Add artist</button>
+  </form>
