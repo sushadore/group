@@ -2,15 +2,27 @@
 
 #### A, {Date of current version}_
 
-#### By _**{List of contributors}**_
+#### By **Susha Dore,Sowmya Dinavahi,Steven Galvin,Monique St Laurent**
 
 ## Description
 
 A web app that allows user to personalize music festival schedule and track them.
 
 ## User Stories
+As a producer:
 
+* I want to be able to create, update, delete artists and stages from the database.
+* I want to be able to add performances to the database.
+* I want to be able to have user authentication on the page with a login ID and a password.
+* Have automated artist deletion upon final performance.
 
+As a user:
+
+* I want to be able to have a drop down list to add artists to my personalized festival schedule.
+* I want to be able to rank artists and delete the uninteresting performances.
+* I want to be able to organize locations.
+* I want an alert notification of favourite artist's performance a half an hour before they go on stage.
+* I want to able to leave reviews on the artist's performance.
 
 ## Setup/Installation Requirements
 
@@ -38,4 +50,4 @@ _{Tell me about the languages and tools you used to create this app. Assume that
 
 *{Determine the license under which this application can be used.  See below for more details on licensing.}*
 
-Copyright (c) 2016 **_{List of contributors or company name}_**
+Copyright (c) 2016 **Susha Dore,Sowmya Dinavahi,Steven Galvin,Monique St Laurent**
