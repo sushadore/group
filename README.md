@@ -1,8 +1,8 @@
 # Music Festival App
 
-#### A, {Date of current version}_
+#### A music festival app that personalizes music festival schedule, {05/15/17}
 
-#### By _**{Susha Dore,Sowmya Dinavahi,Steven Galvin,Monique St Laurent}**_
+#### By  **Susha Dore,Sowmya Dinavahi,Steven Galvin,Monique St Laurent**
 
 ## Description
 
@@ -48,4 +48,4 @@ Feel free to contact me
 
 MIT open source
 
-Copyright (c) 2017 **_{Susha Dore,Sowmya Dinavahi,Steven Galvin,Monique St Laurent}_**
+Copyright (c) 2017 **Susha Dore,Sowmya Dinavahi,Steven Galvin,Monique St Laurent**
