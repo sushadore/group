@@ -1,7 +1,9 @@
 require 'spec_helper'
 
 describe Attendee do
+
   it { should have_many(:artists).through(:favorites) }
+
 
   describe("validations & callbacks") do
 
@@ -65,4 +67,5 @@ describe Attendee do
       expect(attendee.name).to(eq("Steven Galvin"))
     end
   end
+
 end

@@ -14,45 +14,38 @@ get "/producers" do
   erb :producer_login
 end
 
-post "/producer/signup" do
-  attendee = Attendee.new(:user_name => params[:user_name], :password => params[:password])
-  if attendee.save
-    puts "Success!"
-    redirect back
-  else
-    puts "Failure."
-    erb :security
-  end
-end
-
-
+# post "/producer/signup" do
+#   attendee = Attendee.new(:username => params[:username], :password => params[:password])
+#   if attendee.save
+#     puts "Success!"
+#     redirect back
+#   else
+#     puts "Failure."
+#     erb :security
+#   end
+# end
 
 post "/attendee/signup" do
-  attendee = Attendee.new(:user_name => params[:user_name], :password => params[:password])
+  attendee = Attendee.new(:name => params[:name], :username => params[:username], :password => params[:password])
   if attendee.save
-    puts "Success!"
     redirect back
   else
-    puts "Failure."
     erb :security
   end
 end
 
-
 post "/attendee/login" do
-  attendee = Attendee.find_by(:user_name => params[:user_name])
+  attendee = Attendee.find_by(:username => params[:username])
   if attendee && attendee.authenticate(params[:password])
     session[:user_id] = attendee.id
-    puts "Success!"
     erb :attendee
   else
-    puts "Failure."
     erb :security
   end
 end
 
 get "/attendee/:id" do
-  if session[:user_name] !=nil
+  if session[:username] !=nil
     @artist.all
     erb :attendee
   else
