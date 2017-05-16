@@ -24,7 +24,7 @@
       <h5>Here are all the artists you've added to the festival:</h5>
       <ul>
         <% @artists.each do |artist| %>
-        <li><a href="/artist/<%= artist.id %>"><%= artist.name %></a></li>
+        <li><a href="/producer/artist/<%= artist.id %>"><%= artist.name %></a></li>
       <% end %>
       </ul>
     <% else %>
