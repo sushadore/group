@@ -1,0 +1,34 @@
+<h1>Hello !</h1>
+<hr>
+<div class="row">
+  <div class="col-md-6">
+    <h4>Add artists to the festival</h4>
+    <br>
+    <form action="/producers/add-artists" method="post">
+      <label for="artist[name]">Artist Name:</label>
+      <input type="text" name="artist[name]" placeholder="Example Name" required>
+      <br>
+      <br>
+      <label for="artist[bio]">Artist Bio:</label>
+      <br>
+      <small>Expand text area if needed</small>
+      <br>
+      <textarea type="text" name="artist[bio]" placeholder="Example biography" required></textarea>
+      <br>
+      <button type="submit" class="btn-success">Add Artist</button>
+    </form>
+  </div>
+  <div class="col-md-6">
+    <h4>Artists:</h4>
+    <% if @artists.any? %>
+      <h5>Here are all the artists you've added to the festival:</h5>
+      <ul>
+        <% @artists.each do |artist| %>
+        <li><a href="/artist/<%= artist.id %>"><%= artist.name %></a></li>
+      <% end %>
+      </ul>
+    <% else %>
+      <p>You haven't added any artists yet.</p>
+    <% end %>
+  </div>
+</div>

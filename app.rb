@@ -1,4 +1,6 @@
 require "bundler/setup"
+require 'pry'
+require "pry-byebug"
 
 
 
@@ -60,22 +62,47 @@ get "/producer/signin" do
   erb :producer_login
 end
 
-
+post "/producer" do
+  
+  erb :producer_navigation
+end
 
 get "/producer/signup" do
   erb :producer_create_account
 end
 
-
-
 post "/producer/signup" do
-  producer_name = params['name']
-  producer_username = params['username']
-  producer_password = params['password']
-  @producer = Producer.create(:name => producer_name, :username => producer_username, :password => producer_password, :id => nil)
+  producer_data = params.fetch('producer')
+  @producer = Producer.create(producer_data)
   if @producer.save
     erb :producer_navigation
   else
-    erb :security
+    @message = "Please enter correct information"
+    redirect back
   end
+end
+
+post "/producer" do
+  @producer = Producer.find_by(username: username)
+  erb :producer
+end
+
+get "/producers/add-artists" do
+  @artists = Artist.all
+  erb :producer_add_artists
+end
+
+post "/producers/add-artists" do
+  artist_data = params.fetch('artist')
+  @artist = Artist.create(artist_data)
+  redirect back
+end
+
+
+# PRODUCER ARTIST CRUD *********
+
+get "/artist/:id" do
+  id = params.fetch('id')
+  @artist = Artist.find(id)
+  erb :artist
 end
