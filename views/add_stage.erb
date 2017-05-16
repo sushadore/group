@@ -1,0 +1,22 @@
+<h1>Stages</h1>
+
+<% if @stages.any? %>
+<table style = "width:50%">
+  <tr>
+    <th>Stages</th>
+  </tr>
+    <% @stages.each do |stage| %>
+    <tr>
+      <th><h4><a href="/stages/<%= stage.id%>"><%= stage.name %></a><h4></th>
+    <% end %>
+  <h4>Click on stage to edit stage</h4>
+<% else %>
+  <h4>There are no stages yet!</h4>
+<% end %>
+<form action ="/stages/new" method="post">
+ <div class="form_group">
+   <label for="stage_name">Stage Name:</label>
+   <input class="form-control" id="stage_name" name="stage_name" type="text">
+ </div>
+ <br><button class="btn btn-default" type="submit">Create Stage</button>
+</form>

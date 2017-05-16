@@ -1,1 +1,31 @@
-<h3> <%= @producer.name %> </h3
+<h3> <%= @producer.name %> </h3>
+  <div class="row">
+    <div class="col-md-6">
+      <h3>Stages:</h3>
+      <% if @stages.any? %>
+      <h4>Click on stage to edit</h4>
+      <ul>
+        <% @stages.each do |stage| %>
+          <li><a href="/stages/<%= stage.id %>"><%= stage.name %></a></li>
+        <% end %>
+      </ul>
+      <% else %>
+      <h4>There are no stages yet!</h4>
+      <% end %>
+      <a href="/stages/add">Add a Stage</a>
+    </div>
+    <div class="col-md-6">
+      <h3>Artists:</h3>
+      <% if @artists.any? %>
+        <h4>Click on artist to edit</h4>
+        <ul>
+          <% @artists.each do |artist| %>
+            <li><a href="/artists/<%= artist.id %>"><%= artist.name %></a></li>
+          <% end %>
+        </ul>
+      <% else %>
+      <h4>There are no artists yet!</h4>
+      <% end %>
+      <a href="/artists/add">Add an Artist</a>
+    </div>
+  </div>

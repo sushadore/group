@@ -21,6 +21,41 @@ get "/producer/signup" do
 end
 
 
+post "/producer/success" do
+  @producer = Producer.find_by(:username => params.fetch('username'))
+  if @producer.password == params.fetch('password')
+    session[:user_id] = @producer.id
+    @stages = Stage.all
+    @artists = Artist.all
+    erb :producer_navigation
+  else
+    erb :security
+  end
+end
+
+get "/producers/success" do
+  @producer = Producer.find_by(:name => params.fetch('name'))
+  @stages = Stage.all
+  @artists = Artist.all
+  erb :producer_navigation
+end
+
+get "/stages/add" do
+  @stages = Stage.all
+  erb :add_stage
+end
+
+post "/stages/new" do
+  stage_name = params["stage_name"]
+  @stage = stage_name
+  new_stage = Stage.create({:name => stage_name})
+  redirect back
+end
+
+get "/stages/:id" do
+  @stage = Stage.find(params.fetch('id').to_i)
+  erb :stage
+end
 
 post "/producer/signup" do
   producer_name = params['name']
@@ -36,8 +71,10 @@ end
 
 post "/attendee/signup" do
   attendee_name = params['name']
+
   attendee_username = params['username']
   attendee_password = params['password']
+  @artist = Artist.all
   @attendee = Attendee.create(:name => attendee_name, :username => attendee_username, :password => attendee_password, :id => nil)
   if @attendee.save
     erb :attendee
@@ -50,10 +87,10 @@ get "/attendee/signin" do
   erb :attendee_login
 end
 
-post "/attendee/signin" do
-  attendee = Attendee.find_by(:username => params[:username])
-  if attendee && attendee.authenticate(params[:password])
-    session[:user_id] = attendee.id
+post "/attendee/success" do
+  @attendee = Attendee.find_by(:username => params.fetch('username'))
+  if @attendee.password ==params.fetch('password')
+    session[:user_id] = @attendee.id
     erb :attendee
   else
     erb :security
