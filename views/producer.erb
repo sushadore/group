@@ -20,12 +20,12 @@
         <h4>Click on artist to edit</h4>
         <ul>
           <% @artists.each do |artist| %>
-            <li><a href="/artists/<%= artist.id %>"><%= artist.name %></a></li>
+            <li><a href="/producer/artist/<%= artist.id %>"><%= artist.name %></a></li>
           <% end %>
         </ul>
       <% else %>
       <h4>There are no artists yet!</h4>
       <% end %>
-      <a href="/artists/add">Add an Artist</a>
+      <a href="/producers/add-artists">Add an Artist</a>
     </div>
   </div>

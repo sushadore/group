@@ -1,11 +1,14 @@
 <h4>Create Account:</h4>
 <%= @message %>
-<form action="/producer/signup" method="post">
-  <label for="name">Name:</label>
-  <input type="text" name="name" id="name">
-  <label for="username">Username:</label>
-  <input type="text" name="username" id="username">
-  <label for="password">Password:</label>
-  <input type="password" name="password" id="password">
+<form action="/producer" method="post">
+  <label for="producer[name]">Name:</label>
+  <input type="text" name="producer[name]" required>
+  <br>
+  <label for="producer[username]">Username:</label>
+  <input type="text" name="producer[username]" required>
+  <br>
+  <label for="producer[password]">Password:</label>
+  <input type="text" name="producer[password]" required>
+  <br>
   <button type="submit">Add User</button>
 </form>
