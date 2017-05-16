@@ -12,4 +12,8 @@ private
   def capitalize_name
     self.name=(name.split(/(\W)/).map(&:capitalize).join)
   end
+
+  def authenticate
+    self['password'] == params['password']
+  end
 end
