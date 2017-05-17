@@ -1,1 +1,28 @@
 <h1>Hello <%= @attendee.name %> !</h1>
+<% if @attendee.artists.any? %>
+<h3>Your Artists:</h3>
+  <h4>Click on artist to view bio or leave a review</h4>
+  <ul>
+    <% @attendee.artists.each do |artist| %>
+
+      <li><%= artist.name %>
+      <a href="/attendee/<%= @attendee.id %>/remove_artist/<%= artist.id %>"><span class="glyphicon glyphicon-remove-circle warning" aria-hidden="true"></span></a>
+    </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<% if @artists.any? %>
+<h4>Please choose your artists from the list below</h4>
+ <form action="/attendee/<%= @attendee.id %>/add_artist" method="post">
+   <% @artists.each do |artist| %>
+   <label>
+   <input type="checkbox" name="artists_id[]" value="<%= artist.id %>">
+     <%= artist.name %>
+ </label>
+   <% end %>
+   <button type="submit">Add artist</button>
+ </form>
+ <%else %>
+ <h4>Glad you are so eager but there are no artists yet! Check back in 3 months before the festival starts.</h4>
+ <% end %>

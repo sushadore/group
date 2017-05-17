@@ -1,7 +1,24 @@
-<h2>Artist: <u><%= @artist.name %></u></h2>
+<h2>Artist: <%= @artist.name %></h2>
 <hr>
 <div class="row">
   <div class="well col-md-3">
     <p><%= @artist.bio %></p>
   </div>
 </div>
+
+<!-- <form action="/attendee/add-review" method="post">
+  <br>
+  <label for="artist[user_reviews]">Review Artist:</label>
+  <br>
+  <small>Expand text area if needed</small>
+  <br>
+  <textarea type="text" name="artist[user_reviews]" placeholder="Example review" required></textarea>
+  <br>
+  <button type="submit" class="btn-success">Add Review</button>
+</form> -->
+
+<!-- <form action="/attendee/remove_artist" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input type="hidden" name="artist_id" value=>
+   <span class="glyphicon glyphicon-remove-circle warning" aria-hidden="true"></span>
+</form> -->
