@@ -1,15 +1,21 @@
-<h1>Hello <%= @attendee.name %> !</h1>
+<h1>Hello <%= @attendee.name %>!</h1>
 <% if @attendee.artists.any? %>
 <h3>Your Artists:</h3>
-  <h4>Click on artist to view bio or leave a review</h4>
-  <ul>
+  <table style = "width:50%">
+    <tr>
+      <th>Artist</th>
+      <th>Stage</th>
+      <th>Remove</th>
+    </tr>
     <% @attendee.artists.each do |artist| %>
-
-      <li><%= artist.name %>
-      <a href="/attendee/<%= @attendee.id %>/remove_artist/<%= artist.id %>"><span class="glyphicon glyphicon-remove-circle warning" aria-hidden="true"></span></a>
-    </li>
+      <tr>
+        <th><a href="/artist/<%= artist.id%>"><%= artist.name %></a></th>
+  <th>  <!-- stage will go here --> </th>
+      <th><a href="/attendee/<%= @attendee.id %>/remove_artist/<%= artist.id %>"><span class="glyphicon glyphicon-remove-circle warning" aria-hidden="true"></span></a></th>
     <% end %>
-  </ul>
+  </tr>
+  </table>
+    <h4>Click on artist to view bio or leave a review</h4>
 <% end %>
 
 <% if @artists.any? %>
@@ -24,5 +30,5 @@
    <button type="submit">Add artist</button>
  </form>
  <%else %>
- <h4>Glad you are so eager but there are no artists yet! Check back in 3 months before the festival starts.</h4>
+ <h4>You have added ALL the artists to your list! Busy fest yo!</h4>
  <% end %>
